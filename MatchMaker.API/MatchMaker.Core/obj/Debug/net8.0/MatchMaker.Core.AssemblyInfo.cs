@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MatchMaker.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11680b2d97fa221e6c0bb861ce496349082acaee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72d30eacaa3273dcab38fc238c7f776d7d480c8f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MatchMaker.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MatchMaker.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
