@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/DNBwEfUi8pGfRYLImz4TJP9bJ8Q2x7mwf/8sLvpxybYH+jgZCnfe93m36abmoKpl0WZSxBlHmYmLAvD1aG+rA==",
+  "dgSpecHash": "Zvclu3QH737NAmRLm6hJjIQ/fMKWyYyox37ESTDk0XwpwFwL9I7RnUKQAKGAC8mQK+zoBQkoe5ZB0/WjMJDKeQ==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\שידוכים\\MatchMaker\\MatchMaker.API\\MatchMaker.API\\MatchMaker.API.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\This User\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "C:\\Users\\This User\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\This User\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
-    "C:\\Users\\This User\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
-    "C:\\Users\\This User\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "C:\\Users\\This User\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\user1\\Desktop\\project\\MatchMaker\\MatchMaker.API\\MatchMaker.API\\MatchMaker.API.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
