@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MatchMaker.Core.Entities
 {
-    internal class Girl
+    internal class Girl:Person
     {
+        public int Subject { get; set; }
+        public int Yearbook { get; set; }
     }
 }

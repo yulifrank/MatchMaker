@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MatchMaker.Core.Entities
 {
-    internal class gui
+    public class Guy:Person
     {
+        public int Vaad { get; set; }
+
     }
 }
