@@ -1,12 +1,15 @@
-﻿using System;
+﻿using MatchMaker.Core.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MatchMaker.Core.Repositories
 {
-    internal interface IIdeaRepository
+    public interface IIdeaRepository
     {
+        Task<List<Idea>> GetListAsync();        
+        Task<Idea?> GetByIdAsync(int id);       
+        Task<Idea> AddAsync(Idea idea);         
+        Task<Idea> UpdateAsync(Idea idea);      
+        Task DeleteAsync(Idea idea);            
     }
 }

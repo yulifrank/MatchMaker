@@ -1,18 +1,16 @@
 ﻿using MatchMaker.Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MatchMaker.Core.Services
 {
-    internal interface IPersonService
+    public interface IPersonService
     {
-        Task<List<Person>> GetListAsync();
-        Task<Person?> GetByIdAsync(int id);
-        Person Add(Person entity);
-        Person Update(Person person);
-        void Delete(Person person);
+        Task<List<Person>> GetListAsync();        
+        Task<Person?> GetByIdAsync(int id);       
+        Task<Person> Add(Person entity);          
+        Task<Person> Update(Person person);       
+        Task Delete(Person person);               
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MatchMaker.Core.Entities
 {
-    internal class Idea
+    public class Idea
     {
         public int Id { get; set; }
-        public Guy guy { get; set; }
-        public Girl girl { get; set; }
-        public string status_description { get; set; }
+        public Guy Guy { get; set; }
+        public Girl Girl { get; set; }
+        public string Status_description { get; set; }
     }
 }

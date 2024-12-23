@@ -1,45 +1,66 @@
-﻿
+﻿using MatchMaker.Core.Entities;
 using MatchMaker.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MatchMaker.Data.Reopsitories
+namespace MatchMaker.Data.Repositories
 {
     public class IdeaRepository : IIdeaRepository
-
     {
         private readonly DataContext _context;
-        public IdeaRepository( DataContext context)
+
+        public IdeaRepository(DataContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        Idea IIdeaRepository.Add(Idea idea)
+        public async Task<Idea> AddAsync(Idea idea)
         {
-            throw new NotImplementedException();
+            if (idea == null)
+            {
+                throw new ArgumentNullException(nameof(idea));
+            }
+
+            await _context.Ideas.AddAsync(idea);
+            await _context.SaveChangesAsync();
+            return idea;
         }
 
-        void IIdeaRepository.Delete(Idea idea)
+        public async Task DeleteAsync(Idea idea)
         {
-            throw new NotImplementedException();
+            if (idea == null)
+            {
+                throw new ArgumentNullException(nameof(idea));
+            }
+
+            _context.Ideas.Remove(idea);
+            await _context.SaveChangesAsync();
         }
 
-        Task<Idea?> IIdeaRepository.GetByIdAsync(int id)
+        public async Task<Idea?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Ideas
+                                 .FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        Task<List<Idea>> IIdeaRepository.GetListAsync()
+        public async Task<List<Idea>> GetListAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Ideas.ToListAsync();
         }
 
-        Idea IIdeaRepository.Update(Idea idea)
+        public async Task<Idea> UpdateAsync(Idea idea)
         {
-            throw new NotImplementedException();
+            if (idea == null)
+            {
+                throw new ArgumentNullException(nameof(idea));
+            }
+
+            _context.Ideas.Update(idea);
+            await _context.SaveChangesAsync();
+            return idea;
         }
     }
 }

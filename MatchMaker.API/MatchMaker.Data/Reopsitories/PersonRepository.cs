@@ -5,34 +5,74 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
-namespace MatchMaker.Data.Reopsitories
+
+
+namespace MatchMaker.Data.Repositories
 {
-    internal class PersonRepository : IPersonRepository
+    public class PersonRepository : IPersonRepository
     {
-        Person IPersonRepository.Add(Person entity)
+        private readonly DataContext _context;
+
+        public PersonRepository(DataContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        void IPersonRepository.Delete(Person person)
-        {
-            throw new NotImplementedException();
+        // הוספת אדם
+        public async Task<Person> AddAsync(Person person) {
+
+            await _context.Persons.AddAsync(person);
+            await _context.SaveChangesAsync();
+
+            return person;
         }
 
-        Task<Person?> IPersonRepository.GetByIdAsync(int id)
+        // מחיקת אדם
+        public async Task DeleteAsync(Person person)
         {
-            throw new NotImplementedException();
+            var personToDelete = await _context.Persons
+                                                .Where(p => p.Id == person.Id)
+                                                .FirstOrDefaultAsync();
+
+            if (personToDelete != null)
+            {
+                _context.Persons.Remove(personToDelete); // הסרה מהקשר
+                await _context.SaveChangesAsync(); // שמירה של השינויים
+            }
         }
 
-        Task<List<Person>> IPersonRepository.GetListAsync()
+        // קבלת אדם לפי ID
+        public async Task<Person?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Persons
+                                 .Where(p => p.Id == id)
+                                 .FirstOrDefaultAsync(); // מציאת אדם לפי ID
         }
 
-        Person IPersonRepository.Update(Person person)
+        // קבלת רשימה של אנשים
+        public async Task<List<Person>> GetListAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Persons.ToListAsync(); // קבלת רשימה אסינכרונית של כל האנשים
+        }
+
+        // עדכון אדם
+        public async Task<Person> UpdateAsync(Person person)
+        {
+            var existingPerson = await _context.Persons
+                                               .Where(p => p.Id == person.Id)
+                                               .FirstOrDefaultAsync();
+
+            if (existingPerson != null)
+            {
+                existingPerson.Name = person.Name;  // עדכון שדות לדוגמה
+
+                await _context.SaveChangesAsync(); // שמירה של השינויים
+                return existingPerson;
+            }
+
+            return null;  // אם לא נמצא אדם לעדכון
         }
     }
 }
