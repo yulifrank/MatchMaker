@@ -6,44 +6,24 @@ using System.Threading.Tasks;
 
 namespace MatchMaker.Core.Entities
 {
-<<<<<<< HEAD
-    public class Girl:Person
+
+
+    public class Girl : Person
     {
         public string Subject { get; set; }
         public int Yearbook { get; set; }
 
-        public Girl(string firstName, string lastName, DateOnly birthday, int opennessLevel, string fatherName, string motherName, float hight, Motza motza, string subject,int yearbook, string remark = "", string resume = null, string img = null)
+        public Girl(string firstName, string lastName, DateOnly birthday, int opennessLevel, string fatherName, string motherName, float hight, Motza motza, string subject, int yearbook, string remark = "", string resume = null, string img = null)
     : base(firstName, lastName, birthday, opennessLevel, fatherName, motherName, hight, motza, remark, resume) // קריאה לקונסטרוקטור של Person
         {
             Subject = subject;
             Yearbook = yearbook;
-            
+
         }
 
         public Girl()
         {
-            
-=======
-    
-    
-        public class Girl : Person
-        {
-            public string Subject { get; set; }
-            public int Yearbook { get; set; }
 
-            public Girl(string firstName, string lastName, DateOnly birthday, int opennessLevel, string fatherName, string motherName, float hight, Motza motza, string subject, int yearbook, string remark = "", string resume = null, string img = null)
-        : base(firstName, lastName, birthday, opennessLevel, fatherName, motherName, hight, motza, remark, resume) // קריאה לקונסטרוקטור של Person
-            {
-                Subject = subject;
-                Yearbook = yearbook;
-
-            }
-
-            public Girl()
-            {
-
-            }
->>>>>>> f814bc982c82016ba8a39fb3a3e241bc2a28d8dd
         }
     }
-
+}
