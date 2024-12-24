@@ -22,4 +22,4 @@ namespace MatchMaker.Core.Entities
         }
     }
 
-    }
+}

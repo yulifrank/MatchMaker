@@ -1,0 +1,22 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4; /* צבע רקע בהיר */
+  }
+  
+  .logo {
+    width: 300px; /* גודל הלוגו */
+    height: auto;
+    object-fit: contain;
+  }
+  .all{
+    background-image: url('../../assets/images/image1.png');
+    background-size: cover; /* כדי להתאים את התמונה לגודל של החלון */
+    background-attachment: fixed; /* כדי להשאיר את התמונה במקום כאשר ממסך נגללים */
+    background-position: center center; /* כדי למקד את התמונה באמצע הדף */
+    background-repeat: no-repeat; /* כדי לא לשקול את התמונה */
+    margin-top: 6%;
+  }
+  

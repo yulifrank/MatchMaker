@@ -4,3 +4,12 @@ obj/
 *.cache
 *.nuget.*
 .vs/
+
+
+obj/
+*.cache
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.assets.cache
+project.nuget.cache
+project.assets.json
