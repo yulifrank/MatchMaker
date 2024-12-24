@@ -1,1 +1,6 @@
+# Ignore build and cache files
+bin/
+obj/
+*.cache
+*.nuget.*
 .vs/

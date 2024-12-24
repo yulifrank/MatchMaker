@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MatchMaker.Core\MatchMaker.Core.csproj" />
+  </ItemGroup>
+
 </Project>
