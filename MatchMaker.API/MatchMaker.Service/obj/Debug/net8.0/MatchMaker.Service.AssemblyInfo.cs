@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MatchMaker.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73d79df237f50a5e10a0c92352905a1ac04afad8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8195cb898c1161c157ea419e2ac2e2fee8eb08e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("MatchMaker.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MatchMaker.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
