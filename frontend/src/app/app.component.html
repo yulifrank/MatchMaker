@@ -1,7 +1,8 @@
-<app-top-bar></app-top-bar>
+<app-top-bar></app-top-bar> <!-- הוספת את ה-TopBar -->
+<router-outlet></router-outlet> <!-- זהו החלק שבו ייטען התוכן של כל ראוט -->
 
-<router-outlet></router-outlet>
-
-
-
-
+<nav class="navbar">
+  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a routerLink="/person" routerLinkActive="active">Person</a>
+  <a routerLink="/ideas" routerLinkActive="active">Ideas</a>
+</nav>

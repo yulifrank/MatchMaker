@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; // הוספת המודול הזה
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from '../components/home-page/home-page.component';
 import { PersonsComponent } from '../components/persons/persons.component';
+import { IdeasComponent } from '../components/ideas/ideas.component';
+import { TopBarComponent } from '../components/top-bar/top-bar.component'; // הוספת ה-TopBarComponent
 
-const routes = [
+const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'person', component: PersonsComponent },
+  { path: 'ideas', component: IdeasComponent },
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomePageComponent,
-    PersonsComponent,
+
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes), // הוספת RouterModule עם הגדרת הראוטים
+    RouterModule.forRoot(routes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [],
 })
-export class AppModule { }
+export class AppModule {}
