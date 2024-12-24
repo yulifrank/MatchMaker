@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +19,25 @@ namespace MatchMaker.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // קונפיגורציות נוספות אם יש
+            modelBuilder.Entity<Idea>()
+                .HasOne(i => i.Guy)
+                .WithMany()
+                .HasForeignKey(i => i.GuyId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Idea>()
+                .HasOne(i => i.Girl)
+                .WithMany()
+                .HasForeignKey(i => i.GirlId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Math=");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=MatchMakerDb;Trusted_Connection=True;");
         }
     }
 }

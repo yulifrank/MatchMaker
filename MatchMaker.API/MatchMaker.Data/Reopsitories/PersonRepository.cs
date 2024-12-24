@@ -7,8 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-
-
 namespace MatchMaker.Data.Repositories
 {
     public class PersonRepository : IPersonRepository
@@ -21,8 +19,9 @@ namespace MatchMaker.Data.Repositories
         }
 
         // הוספת אדם
-        public async Task<Person> AddAsync(Person person) {
-
+        public async Task<Person> AddAsync(Person person)
+        {
+            // אל תגדיר את ה-ID כאן - הוא מתמלא אוטומטית
             await _context.Persons.AddAsync(person);
             await _context.SaveChangesAsync();
 
@@ -58,15 +57,25 @@ namespace MatchMaker.Data.Repositories
         }
 
         // עדכון אדם
-        public async Task<Person> UpdateAsync(Person person)
+        public async Task<Person> UpdateAsync(Person personPostModel)
         {
             var existingPerson = await _context.Persons
-                                               .Where(p => p.Id == person.Id)
+                                               .Where(p => p.Id == personPostModel.Id)
                                                .FirstOrDefaultAsync();
-
             if (existingPerson != null)
             {
-                existingPerson.Name = person.Name;  // עדכון שדות לדוגמה
+                // עדכון כל השדות
+                existingPerson.FirstName = personPostModel.FirstName;
+                existingPerson.LastName = personPostModel.LastName;
+                existingPerson.Birthday = personPostModel.Birthday;
+                existingPerson.OpennessLevel = personPostModel.OpennessLevel;
+                existingPerson.FatherName = personPostModel.FatherName;
+                existingPerson.MotherName = personPostModel.MotherName;
+                existingPerson.Height = personPostModel.Height;
+                existingPerson.Motza = personPostModel.Motza;
+                existingPerson.Remark = personPostModel.Remark;
+                existingPerson.Img = personPostModel.Img;
+                existingPerson.Resume = personPostModel.Resume;
 
                 await _context.SaveChangesAsync(); // שמירה של השינויים
                 return existingPerson;
@@ -74,5 +83,6 @@ namespace MatchMaker.Data.Repositories
 
             return null;  // אם לא נמצא אדם לעדכון
         }
+
     }
 }
