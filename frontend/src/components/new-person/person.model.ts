@@ -1,56 +1,53 @@
-export class Person {
-    constructor(
-      public firstName: string = '',
-      public lastName: string = '',
-      public birthday: string = '',
-      public opennessLevel: number = 0,
-      public fatherName: string = '',
-      public motherName: string = '',
-      public hight: number = 0,
-      public motza: string = 'Ashcenaz',
-      public remark: string = '',
-      public resume: string = '',
-      public img: string = '',
-      public gender: string = 'Girl'
-    ) {}
-  }
-  
-  export class Girl extends Person {
-    constructor(
-      public subject: string = '',
-      public yearbook: number = 0,
-      firstName: string = '',
-      lastName: string = '',
-      birthday: string = '',
-      opennessLevel: number = 0,
-      fatherName: string = '',
-      motherName: string = '',
-      hight: number = 0,
-      motza: string = 'Ashcenaz',
-      remark: string = '',
-      resume: string = '',
-      img: string = ''
-    ) {
-      super(firstName, lastName, birthday, opennessLevel, fatherName, motherName, hight, motza, remark, resume, img);
-    }
-  }
-  
-  export class Guy extends Person {
-    constructor(
-      public vaad: number = 0,
-      firstName: string = '',
-      lastName: string = '',
-      birthday: string = '',
-      opennessLevel: number = 0,
-      fatherName: string = '',
-      motherName: string = '',
-      hight: number = 0,
-      motza: string = 'Ashcenaz',
-      remark: string = '',
-      resume: string = '',
-      img: string = ''
-    ) {
-      super(firstName, lastName, birthday, opennessLevel, fatherName, motherName, hight, motza, remark, resume, img);
-    }
-  }
-  
+// export class Person {
+//     gender?: string;
+//     firstName?: string;
+//     lastName?: string;
+//     birthday?: Date; // שינוי מ-string ל-Date
+//     fatherName?: string;
+//     motherName?: string;
+//     height?: number; // שדה מתוקן
+//     motza?: string;
+//     subject?: string; // אופציונלי: שייך ל-Girl
+//     yearbook?: number; // אופציונלי: שייך ל-Girl
+//     vaad?: number; // אופציונלי: שייך ל-Guy
+//     remark?: string;
+//     resume?: string;
+//     img?: string;
+// }
+
+// export class Girl extends Person {
+//     constructor(
+//         public override firstName: string,
+//         public override lastName: string,
+//         public override birthday: Date,
+//         public override fatherName: string,
+//         public override motherName: string,
+//         public override height: number, // מתוקן
+//         public override motza: string,
+//         public override subject: string,
+//         public override yearbook: number,
+//         public override remark?: string,
+//         public override resume?: string,
+//         public override img?: string
+//     ) {
+//         super();
+//     }
+// }
+
+// export class Guy extends Person {
+//     constructor(
+//         public override firstName: string,
+//         public override lastName: string,
+//         public override birthday: Date,
+//         public override fatherName: string,
+//         public override motherName: string,
+//         public override height: number, // מתוקן
+//         public override motza: string,
+//         public override vaad: number,
+//         public override remark?: string,
+//         public override resume?: string,
+//         public override img?: string
+//     ) {
+//         super();
+//     }
+// }
