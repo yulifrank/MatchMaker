@@ -1,15 +1,25 @@
 using MatchMaker.API.Mapping;
 using MatchMaker.Core.Repositories;
 using MatchMaker.Core.Services;
-using MatchMaker.Data;
 using MatchMaker.Data.Repositories;
+using MatchMaker.Data;
 using MatchMaker.Service.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// הוספת שירותי CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")  // מקבל את הבקשות מ-localhost:4200
+              .AllowAnyHeader()                     // מאפשר כל כותרת
+              .AllowAnyMethod();                    // מאפשר כל שיטה (GET, POST, PUT וכו')
+    });
+});
 
+// Add services to the container.
 builder.Services.AddControllers();
 
 // הזרקת ה-DataContext
@@ -23,8 +33,7 @@ builder.Services.AddScoped<IPersonService, PersonService>();
 // הזרקת ה-Repositories
 builder.Services.AddScoped<IIdeaRepository, IdeaRepository>();
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
-builder.Services.AddAutoMapper( typeof(PostModelsMappingProfile));
-
+builder.Services.AddAutoMapper(typeof(PostModelsMappingProfile));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -40,6 +49,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// הוספת תמיכת CORS
+app.UseCors("AllowLocalhost");
 
 app.UseAuthorization();
 

@@ -1,1 +1,26 @@
-<p>ideas works!</p>
+<div>
+    <h2>Idea List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Guy ID</th>
+          <th>Girl ID</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let idea of ideas">
+          <td>{{ idea.id }}</td>
+          <td>{{ idea.guyId }}</td>
+          <td>{{ idea.girlId }}</td>
+          <td>{{ idea.statusDescription }}</td>
+          <td>
+            <!-- <button (click)="deleteIdea(idea.id)">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

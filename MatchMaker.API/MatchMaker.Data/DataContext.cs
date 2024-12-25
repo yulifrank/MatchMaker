@@ -32,6 +32,7 @@ namespace MatchMaker.Data
                 .HasForeignKey(i => i.GirlId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
         }
 
 

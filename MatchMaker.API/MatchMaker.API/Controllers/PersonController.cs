@@ -28,6 +28,30 @@ namespace MatchMaker.API.Controllers
             var people = await _personService.GetListAsync();
             return Ok(people);
         }
+        [HttpGet("guys")]
+        public async Task<ActionResult<List<Guy>>> GetGuys()
+        {
+            // קבלת כל האנשים מהשירות
+            var people = await _personService.GetListAsync();
+
+            // סינון האנשים רק לאובייקטים מהסוג Guy
+            var guys = people.OfType<Guy>().ToList();
+
+            return Ok(guys);
+        }
+
+        [HttpGet("girls")]
+        public async Task<ActionResult<List<Girl>>> GetGirls()
+        {
+            // קבלת כל האנשים מהשירות
+            var people = await _personService.GetListAsync();
+
+            // סינון האנשים רק לאובייקטים מהסוג Girl
+            var girls = people.OfType<Girl>().ToList();
+
+            return Ok(girls);
+        }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetById(int id)
