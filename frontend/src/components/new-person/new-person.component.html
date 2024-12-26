@@ -1,47 +1,64 @@
-<form (ngSubmit)="onSubmit()" #personForm="ngForm">
-    <div>
-      <label>Gender:</label>
-      <label>
-        <input type="radio" name="gender" value="Girl" [(ngModel)]="person.gender"> Girl
-      </label>
-      <label>
-        <input type="radio" name="gender" value="Guy" [(ngModel)]="person.gender"> Guy
-      </label>
-    </div>
-  
-    <div *ngIf="person.gender === 'Girl'">
-      <!-- פרטים עבור בחורה -->
+<form (ngSubmit)="onSubmit()" #personForm="ngForm" class="person-form">
+  <div class="form-group">
+    <label>Gender:</label>
+    <label>
+      <input type="radio" name="gender" value="Girl" [(ngModel)]="person.gender"> Girl
+    </label>
+    <label>
+      <input type="radio" name="gender" value="Guy" [(ngModel)]="person.gender"> Guy
+    </label>
+  </div>
+
+  <div *ngIf="person.gender === 'Girl'" class="girl-details">
+    <div class="form-group">
       <label>Subject:</label>
       <input type="text" [(ngModel)]="person.subject" name="subject" required>
+    </div>
+    <div class="form-group">
       <label>Yearbook:</label>
       <input type="number" [(ngModel)]="person.yearbook" name="yearbook" required>
     </div>
-  
-    <div *ngIf="person.gender === 'Guy'">
-      <!-- פרטים עבור בחור -->
+  </div>
+
+  <div *ngIf="person.gender === 'Guy'" class="guy-details">
+    <div class="form-group">
       <label>Vaad:</label>
       <input type="number" [(ngModel)]="person.vaad" name="vaad" required>
     </div>
-  
-    <!-- פרטים משותפים -->
+  </div>
+
+  <!-- Shared Details -->
+  <div class="form-group">
     <label>First Name:</label>
     <input type="text" [(ngModel)]="person.firstName" name="firstName" required>
-  
+  </div>
+
+  <div class="form-group">
     <label>Last Name:</label>
     <input type="text" [(ngModel)]="person.lastName" name="lastName" required>
-  
+  </div>
+
+  <div class="form-group">
     <label>Birthday:</label>
     <input type="date" [(ngModel)]="person.birthday" name="birthday" required>
-  
+  </div>
+
+  <div class="form-group">
     <label>Father's Name:</label>
     <input type="text" [(ngModel)]="person.fatherName" name="fatherName">
-  
+  </div>
+
+  <div class="form-group">
     <label>Mother's Name:</label>
     <input type="text" [(ngModel)]="person.motherName" name="motherName">
-  
+  </div>
+
+  <div class="form-group">
     <label>Height:</label>
-    <input type="number" [(ngModel)]="person.hight" name="hight" required>
-  
+    <input type="number" [(ngModel)]="person.height" name="height" required>
+  </div>
+
+  <div class="form-group">
     <label>Motza:</label>
     <select [(ngModel)]="person.motza" name="motza" required>
       <option value="Ashcenaz">Ashcenaz</option>
@@ -49,7 +66,17 @@
       <option value="Chasid">Chasid</option>
       <option value="Teman">Teman</option>
     </select>
-  
-    <button type="submit" [disabled]="!personForm.form.valid">Submit</button>
-  </form>
-  
+  </div>
+
+  <div class="form-group">
+    <label>Upload Image (Optional):</label>
+    <input type="file" (change)="onImageChange($event)" name="img">
+  </div>
+
+  <div class="form-group">
+    <label>Upload Resume (Optional):</label>
+    <input type="file" (change)="onResumeChange($event)" name="resume">
+  </div>
+
+  <button type="submit" [disabled]="!personForm.form.valid" class="submit-btn">Submit</button>
+</form>

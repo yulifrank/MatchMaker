@@ -1,63 +1,83 @@
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
-// import { Component } from '@angular/core';
-// import { Person, Girl, Guy } from './person.model';  
+@Component({
+    standalone:true,
+    imports:[    FormsModule ,CommonModule],  // Add FormsModule here
+  selector: 'app-new-person',
+  templateUrl: './new-person.component.html',
+  styleUrls: ['./new-person.component.scss']
+})
+export class NewPersonComponent {
+  person = {
+    firstName: '',
+    lastName: '',
+    birthday: '',
+    fatherName: '',
+    motherName: '',
+    height: null,
+    motza: '',
+    gender: '',
+    subject: '',
+    yearbook: null,
+    vaad: null,
+    img: "",
+    resume: ""
+  };
 
-// @Component({
-//   selector: 'app-new-person',
-//   templateUrl: './new-person.component.html',
-//   styleUrls: ['./new-person.component.css']
-// })
-// export class NewPersonComponent {
-//   person: Person = new Person();
-//   export class Person {
-//     subject: string;
-//     yearbook: number;
-//     vaad: number;
-//     firstName: string;
-//     lastName: string;
-//     birthday: string; // או Date תלוי איך אתה רוצה לנהל תאריך
-//     fatherName: string;
-//     motherName: string;
-//     hight: number;
-//     motza: string;
-//   }
+  constructor(private http: HttpClient) {}
+
+  onImageChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.person.img = reader.result as string;  // כאן נשמור את הנתיב של התמונה
+      };
+      reader.readAsDataURL(file);  // קוד זה הופך את התמונה לפורמט Base64, כך שנוכל לשלוח אותה כ-URL
+    }
+  }
   
-//   onSubmit() {
-//     if (this.person.gender === 'Girl') {
-//       // יצירת אובייקט Girl עם הפרטים שהוזנו
-//       const newGirl = new Girl(
-//         this.person.firstName,
-//         this.person.lastName,
-//         new Date(this.person.birthday),  // המרת תאריך
-//         this.person.opennessLevel,
-//         this.person.fatherName,
-//         this.person.motherName,
-//         this.person.hight,
-//         this.person.motza,
-//         this.person.subject,
-//         this.person.yearbook,
-//         this.person.remark,
-//         this.person.resume,
-//         this.person.img
-//       );
-//       console.log(newGirl);  // הדפס את האובייקט על מנת לבדוק
-//     } else if (this.person.gender === 'Guy') {
-//       // יצירת אובייקט Guy עם הפרטים שהוזנו
-//       const newGuy = new Guy(
-//         this.person.firstName,
-//         this.person.lastName,
-//         new Date(this.person.birthday),  // המרת תאריך
-//         this.person.opennessLevel,
-//         this.person.fatherName,
-//         this.person.motherName,
-//         this.person.hight,
-//         this.person.motza,
-//         this.person.vaad,
-//         this.person.remark,
-//         this.person.resume,
-//         this.person.img
-//       );
-//       console.log(newGuy);  // הדפס את האובייקט על מנת לבדוק
-//     }
-//   }
-// }
+
+  onResumeChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.person.resume = reader.result as string;  // כאן נשמור את הנתיב של התמונה
+      };
+      reader.readAsDataURL(file);  // קוד זה הופך את התמונה לפורמט Base64, כך שנוכל לשלוח אותה כ-URL
+    }
+  }
+  
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('firstName', this.person.firstName);
+    formData.append('lastName', this.person.lastName);
+    formData.append('birthday', this.person.birthday);
+    formData.append('fatherName', this.person.fatherName);
+    formData.append('motherName', this.person.motherName);
+    formData.append('height', String(this.person.height));
+    formData.append('motza', this.person.motza);
+
+    if (this.person.gender) {
+      formData.append('gender', this.person.gender);
+    }
+    formData.append('img', this.person.img);
+    formData.append('resume', this.person.resume);
+
+
+    
+    this.http.post('http://localhost:5296/api/person', formData, {
+      headers: {
+        'Accept': 'application/json' // ודאי שהשרת תומך בתשובות JSON
+      }
+    }).subscribe(
+      response => console.log('Success:', response),
+      error => console.error('Error:', error)
+    );
+    
+}
+}
