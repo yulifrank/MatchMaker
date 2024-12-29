@@ -1,0 +1,23 @@
+<div class="add-idea-container">
+    <h3>הוספת רעיון</h3>
+    <mat-form-field>
+      <mat-label>בחר בחור</mat-label>
+      <mat-select [(value)]="selectedGuy">
+        <mat-option *ngFor="let guy of guys" [value]="guy">
+          {{ guy.firstName }} {{ guy.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>בחר בחורה</mat-label>
+      <mat-select [(value)]="selectedGirl">
+        <mat-option *ngFor="let girl of girls" [value]="girl">
+          {{ girl.firstName }} {{ girl.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="addIdea()">הוסף רעיון</button>
+  </div>
+  
