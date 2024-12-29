@@ -17,6 +17,7 @@ export class NewPersonComponent {
   Motza = Motza; // הוספת משתנה זה כדי להנגיש את enum בתבנית
 
   guy: Guy = {
+    id:0,
     firstName: '',
     lastName: '',
     birthday: '',
@@ -32,6 +33,7 @@ export class NewPersonComponent {
   };
 
   girl: Girl = {
+    id:0,
     firstName: '',
     lastName: '',
     birthday: '',

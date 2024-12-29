@@ -1,4 +1,4 @@
-import { Girl, Guy } from "../../components/new-person/person.model";
+import { Girl, Guy } from "./person.model";
 
 export interface Idea {
   id: number;

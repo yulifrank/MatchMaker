@@ -33,7 +33,7 @@ export class IdeasComponent implements OnInit {
   guys: Guy[] = [];
   girls: Girl[] = [];
 
-  selectedGuy?: Guy;
+  selectedGuy  ?: Guy;
   selectedGirl?: Girl;
 
   constructor(
