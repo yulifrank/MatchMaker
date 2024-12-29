@@ -73,6 +73,12 @@ namespace MatchMaker.API.Controllers
             var createdPerson = await _personService.Add(person);
             return CreatedAtAction(nameof(GetById), new { id = createdPerson.Id }, createdPerson);
         }
+
+
+
+
+
+
         [HttpPost("addGuy")]
         public async Task<ActionResult<Person>> AddGuy([FromBody] GuyPostModel guyPostModel)
         {
@@ -80,7 +86,6 @@ namespace MatchMaker.API.Controllers
             var createdGuy = await _personService.Add(guy);
             return CreatedAtAction(nameof(GetById), new { id = createdGuy.Id }, createdGuy);
         }
-
         [HttpPost("addGirl")]
         public async Task<ActionResult<Person>> AddGirl([FromBody] GirlPostModel girlPostModel)
         {
