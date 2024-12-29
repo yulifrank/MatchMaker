@@ -1,11 +1,13 @@
 .navbar {
     display: flex;
     justify-content: center;
-    background-color: #76767670;
+    background-color: #cdcdcd70;
     padding: 2rem;
     position: fixed;
     width: 100%;
-    top:0
+    top:0;
+    margin-bottom: 5%;
+    
   }
   
   .navbar a {

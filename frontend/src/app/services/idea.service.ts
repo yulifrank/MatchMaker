@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { IdeaPostModel } from '../../app/models/idea.model';
 
 @Injectable({
-  providedIn: 'root' // Add this line
+  providedIn: 'root'
 })
-
 export class IdeaService {
   private apiUrl = 'http://localhost:5296/api/Idea';
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   getIdeas(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
@@ -21,7 +19,7 @@ export class IdeaService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  addIdea(idea: any): Observable<any> {
+  addIdea(idea: IdeaPostModel): Observable<any> {
     return this.http.post<any>(this.apiUrl, idea);
   }
 

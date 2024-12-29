@@ -50,14 +50,18 @@ namespace MatchMaker.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Idea>> Put(int id, Idea idea)
+        public async Task<ActionResult<Idea>> Put(int id, IdeaPostModel ideaPostModel)
         {
-            if (id != idea.Id)
+            var idea = await _ideaService.GetByIdAsync(id);
+            if (idea == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
+            // Update the properties of the existing idea with new data
+            _mapper.Map(ideaPostModel, idea);
             var updatedIdea = await _ideaService.UpdateAsync(idea);
+
             return Ok(updatedIdea);
         }
 

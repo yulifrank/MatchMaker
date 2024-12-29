@@ -27,3 +27,4 @@ export interface Girl extends Person {
   subject: string;
   yearbook: number;
 }
+

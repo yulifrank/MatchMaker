@@ -1,16 +1,15 @@
 <div class="person-list">
-    <h2>Guys</h2>
-    <div class="person-grid">
-      <div *ngFor="let guy of guys" class="person-card">
-        <app-guy [guy]="guy"></app-guy>
-      </div>
-    </div>
-    
-    <h2>Girls</h2>
-    <div class="person-grid">
-      <div *ngFor="let girl of girls" class="person-card">
-        <app-girl [girl]="girl"></app-girl>
-      </div>
+  <h2>Guys</h2>
+  <div class="person-grid">
+    <div *ngFor="let guy of guys" class="person-card">
+      <app-guy [guy]="guy"></app-guy>
     </div>
   </div>
   
+  <h2>Girls</h2>
+  <div class="person-grid">
+    <div *ngFor="let girl of girls" class="person-card">
+      <app-girl [girl]="girl"></app-girl>
+    </div>
+  </div>
+</div>

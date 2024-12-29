@@ -1,26 +1,49 @@
-<div>
-    <h2>Idea List</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Guy ID</th>
-          <th>Girl ID</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let idea of ideas">
-          <td>{{ idea.id }}</td>
-          <td>{{ idea.guyId }}</td>
-          <td>{{ idea.girlId }}</td>
-          <td>{{ idea.statusDescription }}</td>
-          <td>
-            <!-- <button (click)="deleteIdea(idea.id)">Delete</button> -->
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="ideas-container">
+    <h2 class="title">רעיונות</h2>
+  
+    <div class="add-idea-form">
+      <mat-form-field class="form-field">
+        <mat-label>בחר בחור</mat-label>
+        <mat-select [(ngModel)]="selectedGuy">
+          <mat-option *ngFor="let guy of guys" [value]="guy">
+            {{ guy.firstName }} {{ guy.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="form-field">
+        <mat-label>בחר בחורה</mat-label>
+        <mat-select [(ngModel)]="selectedGirl">
+          <mat-option *ngFor="let girl of girls" [value]="girl">
+            {{ girl.firstName }} {{ girl.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" (click)="addIdea()">הוסף רעיון</button>
+    </div>
+  
+    <div class="idea-grid">
+      <mat-expansion-panel *ngFor="let idea of ideas" class="idea-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title> רעיון מס' {{ idea.id }} </mat-panel-title>
+          <mat-panel-description> מצב: {{ idea.statusDescription }} </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <div class="idea-details">
+          <div class="guy-details">
+            <p><strong>בחור:</strong> {{ idea.guy.firstName }} {{ idea.guy.lastName }}</p>
+          </div>
+          <div class="girl-details">
+            <p><strong>בחורה:</strong> {{ idea.girl.firstName }} {{ idea.girl.lastName }}</p>
+          </div>
+        </div>
+  
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="editIdea(idea)">עדכן סטטוס</button>
+          <button mat-button color="warn" (click)="deleteIdea(idea.id)">מחק</button>
+        </mat-card-actions>
+      </mat-expansion-panel>
+    </div>
   </div>
   

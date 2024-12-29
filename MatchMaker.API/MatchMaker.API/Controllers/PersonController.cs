@@ -80,6 +80,7 @@ namespace MatchMaker.API.Controllers
 
 
         [HttpPost("addGuy")]
+
         public async Task<ActionResult<Person>> AddGuy([FromBody] GuyPostModel guyPostModel)
         {
             var guy = _mapper.Map<Guy>(guyPostModel);
@@ -87,6 +88,7 @@ namespace MatchMaker.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdGuy.Id }, createdGuy);
         }
         [HttpPost("addGirl")]
+
         public async Task<ActionResult<Person>> AddGirl([FromBody] GirlPostModel girlPostModel)
         {
             var girl = _mapper.Map<Girl>(girlPostModel);
@@ -118,5 +120,6 @@ namespace MatchMaker.API.Controllers
             await _personService.Delete(person);
             return NoContent();
         }
+
     }
 }
