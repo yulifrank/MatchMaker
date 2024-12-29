@@ -15,10 +15,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 })
 export class GirlComponent {
   @Input() girl?: Girl;
-  // פונקציה להחזרת המוצא בשפה העברית
-getMotzaName(motza: Motza | undefined): string {
-  if (!motza) return 'לא צויין';
-  return motza;
-}
 
+  // פונקציה להחזרת המוצא בשפה העברית
+  getMotzaName(motza: number | undefined): string {
+    if (motza === undefined || motza === null) {
+      return 'לא צויין';
+    }
+
+    // המרת הערך למחרוזת המתאימה מתוך ה-enum
+    const motzaEnum = Motza[motza];
+    return motzaEnum ? motzaEnum : 'לא צויין';
+  }
 }

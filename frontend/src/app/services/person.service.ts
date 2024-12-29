@@ -7,7 +7,7 @@ import { Girl, Guy, Person } from '../models/person.model';
   providedIn: 'root',
 })
 export class PersonService {
-  private apiUrl = 'http://localhost:5296/api/person';
+  private apiUrl = 'http://localhost:5296/api/Person';
 
   constructor(private http: HttpClient) {}
 
@@ -22,15 +22,22 @@ export class PersonService {
   getPersonById(id: number): Observable<Person> {
     return this.http.get<Person>(`${this.apiUrl}/${id}`);
   }
-
-  addGuy(guy: Guy): Observable<Guy> {
-    return this.http.post<Guy>(`${this.apiUrl}/addGuy`, guy);
-  }
-
+  
+    addGuy(guy: Guy): Observable<Guy> {
+      console.log("addGuy");
+      
+      console.log(guy);
+      return this.http.post<Guy>(`${this.apiUrl}/addGuy`, guy);
+    }
+  
   addGirl(girl: Girl): Observable<Girl> {
-    return this.http.post<Girl>(`${this.apiUrl}/addGirl`, girl);
-  }
-
+      console.log("addGirl");
+    
+      console.log(girl);
+      return this.http.post<Girl>(`${this.apiUrl}/addGirl`, girl);
+    }
+  
+  
   updatePerson(id: number, person: Person): Observable<Person> {
     return this.http.put<Person>(`${this.apiUrl}/${id}`, person);
   }

@@ -1,82 +1,131 @@
-<form (ngSubmit)="onSubmit()" #personForm="ngForm" class="person-form">
+<div class="form-container">
+  <h2>הוספת פרסון</h2>
   <div class="form-group">
-    <label>Gender:</label>
-    <label>
-      <input type="radio" name="gender" value="Girl" [(ngModel)]="person.gender"> Girl
-    </label>
-    <label>
-      <input type="radio" name="gender" value="Guy" [(ngModel)]="person.gender"> Guy
-    </label>
-  </div>
-
-  <div *ngIf="person.gender === 'Girl'" class="girl-details">
-    <div class="form-group">
-      <label>Subject:</label>
-      <input type="text" [(ngModel)]="person.subject" name="subject" required>
-    </div>
-    <div class="form-group">
-      <label>Yearbook:</label>
-      <input type="number" [(ngModel)]="person.yearbook" name="yearbook" required>
-    </div>
-  </div>
-
-  <div *ngIf="person.gender === 'Guy'" class="guy-details">
-    <div class="form-group">
-      <label>Vaad:</label>
-      <input type="number" [(ngModel)]="person.vaad" name="vaad" required>
-    </div>
-  </div>
-
-  <!-- Shared Details -->
-  <div class="form-group">
-    <label>First Name:</label>
-    <input type="text" [(ngModel)]="person.firstName" name="firstName" required>
-  </div>
-
-  <div class="form-group">
-    <label>Last Name:</label>
-    <input type="text" [(ngModel)]="person.lastName" name="lastName" required>
-  </div>
-
-  <div class="form-group">
-    <label>Birthday:</label>
-    <input type="date" [(ngModel)]="person.birthday" name="birthday" required>
-  </div>
-
-  <div class="form-group">
-    <label>Father's Name:</label>
-    <input type="text" [(ngModel)]="person.fatherName" name="fatherName">
-  </div>
-
-  <div class="form-group">
-    <label>Mother's Name:</label>
-    <input type="text" [(ngModel)]="person.motherName" name="motherName">
-  </div>
-
-  <div class="form-group">
-    <label>Height:</label>
-    <input type="number" [(ngModel)]="person.height" name="height" required>
-  </div>
-
-  <div class="form-group">
-    <label>Motza:</label>
-    <select [(ngModel)]="person.motza" name="motza" required>
-      <option value="Ashcenaz">Ashcenaz</option>
-      <option value="Sfarad">Sfarad</option>
-      <option value="Chasid">Chasid</option>
-      <option value="Teman">Teman</option>
+    <label for="personType">בחר סוג אדם:</label>
+    <select id="personType" [(ngModel)]="personType">
+      <option value="Guy">בחור</option>
+      <option value="Girl">בחורה</option>
     </select>
   </div>
 
-  <div class="form-group">
-    <label>Upload Image (Optional):</label>
-    <input type="file" (change)="onImageChange($event)" name="img">
+  <div *ngIf="personType === 'Guy'">
+    <div class="form-group">
+      <label for="firstName">שם פרטי:</label>
+      <input id="firstName" [(ngModel)]="guy.firstName" />
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">שם משפחה:</label>
+      <input id="lastName" [(ngModel)]="guy.lastName" />
+    </div>
+
+    <div class="form-group">
+      <label for="birthday">תאריך לידה:</label>
+      <input id="birthday" type="date" [(ngModel)]="guy.birthday" />
+    </div>
+
+    <div class="form-group">
+      <label for="fatherName">שם האב:</label>
+      <input id="fatherName" [(ngModel)]="guy.fatherName" />
+    </div>
+
+    <div class="form-group">
+      <label for="motherName">שם האם:</label>
+      <input id="motherName" [(ngModel)]="guy.motherName" />
+    </div>
+
+    <div class="form-group">
+      <label for="height">גובה:</label>
+      <input id="height" type="number" [(ngModel)]="guy.height" />
+    </div>
+
+    <div class="form-group">
+      <label for="motza">מוצא:</label>
+      <select id="motza" [(ngModel)]="guy.motza">
+        <option [ngValue]="Motza.Ashcenaz">אשכנז</option>
+        <option [ngValue]="Motza.Sfarad">ספרד</option>
+        <option [ngValue]="Motza.Chasid">חסיד</option>
+        <option [ngValue]="Motza.Teman">תימן</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="vaad">ועד:</label>
+      <input id="vaad" type="number" [(ngModel)]="guy.vaad" />
+    </div>
+
+    <div class="form-group">
+      <label for="img">תמונה:</label>
+      <input id="img" type="file" (change)="onImageChange($event)" />
+    </div>
+
+    <div class="form-group">
+      <label for="resume">קורות חיים:</label>
+      <input id="resume" type="file" (change)="onResumeChange($event)" />
+    </div>
   </div>
 
-  <div class="form-group">
-    <label>Upload Resume (Optional):</label>
-    <input type="file" (change)="onResumeChange($event)" name="resume">
+  <div *ngIf="personType === 'Girl'">
+    <div class="form-group">
+      <label for="firstName">שם פרטי:</label>
+      <input id="firstName" [(ngModel)]="girl.firstName" />
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">שם משפחה:</label>
+      <input id="lastName" [(ngModel)]="girl.lastName" />
+    </div>
+
+    <div class="form-group">
+      <label for="birthday">תאריך לידה:</label>
+      <input id="birthday" type="date" [(ngModel)]="girl.birthday" />
+    </div>
+
+    <div class="form-group">
+      <label for="fatherName">שם האב:</label>
+      <input id="fatherName" [(ngModel)]="girl.fatherName" />
+    </div>
+
+    <div class="form-group">
+      <label for="motherName">שם האם:</label>
+      <input id="motherName" [(ngModel)]="girl.motherName" />
+    </div>
+
+    <div class="form-group">
+      <label for="height">גובה:</label>
+      <input id="height" type="number" [(ngModel)]="girl.height" />
+    </div>
+
+    <div class="form-group">
+      <label for="motza">מוצא:</label>
+      <select id="motza" [(ngModel)]="girl.motza">
+        <option [ngValue]="Motza.Ashcenaz">אשכנז</option>
+        <option [ngValue]="Motza.Sfarad">ספרד</option>
+        <option [ngValue]="Motza.Chasid">חסיד</option>
+        <option [ngValue]="Motza.Teman">תימן</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">מקצוע:</label>
+      <input id="subject" [(ngModel)]="girl.subject" />
+    </div>
+
+    <div class="form-group">
+      <label for="yearbook">שנתון:</label>
+      <input id="yearbook" type="number" [(ngModel)]="girl.yearbook" />
+    </div>
+
+    <div class="form-group">
+      <label for="img">תמונה:</label>
+      <input id="img" type="file" (change)="onImageChange($event)" />
+    </div>
+
+    <div class="form-group">
+      <label for="resume">קורות חיים:</label>
+      <input id="resume" type="file" (change)="onResumeChange($event)" />
+    </div>
   </div>
 
-  <button type="submit" [disabled]="!personForm.form.valid" class="submit-btn">Submit</button>
-</form>
+  <button class="submit-button" (click)="onSubmit()">שלח</button>
+</div>
