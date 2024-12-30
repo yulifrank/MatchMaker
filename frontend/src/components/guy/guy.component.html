@@ -1,6 +1,12 @@
 <mat-card class="guy-card" style="background-color: #e3f2fd; border-radius: 10px; margin: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
   <mat-card-header>
-    <div mat-card-avatar class="guy-avatar" [ngStyle]="{'background-image': 'url(' + (guy?.img || 'default-image.jpg') + ')'}"></div>
+    <div mat-card-avatar>
+      <img 
+        [src]="guy?.img || 'assets/default-guy.jpg'" 
+        alt="{{ guy?.firstName || 'Default Image' }}" 
+        class="avatar-img"
+      />
+    </div>
     <mat-card-title>{{ guy?.firstName }} {{ guy?.lastName }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>

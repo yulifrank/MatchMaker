@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Girl, Motza } from '../../app/models/person.model';
 import { MatCardModule } from '@angular/material/card';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';

@@ -38,4 +38,12 @@ mat-card {
     color: #555;
     font-weight: bold;
   }
+  .avatar-img {
+    width: 50px; /* גודל התמונה */
+    height: 50px;
+    border-radius: 50%; /* עיגול */
+    object-fit: cover; /* שימור פרופורציות התמונה */
+    border: 2px solid #fff; /* גבול לבן סביב התמונה */
+  }
+  
   

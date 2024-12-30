@@ -54,33 +54,25 @@ export class NewPersonComponent {
   onImageChange(event: any) {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (this.personType === 'Guy') {
-          this.guy.img = reader.result as string;
-        } else {
-          this.girl.img = reader.result as string;
-        }
-      };
-      reader.readAsDataURL(file);
+      if (this.personType === 'Guy') {
+        this.guy.img = file.name; // שמירת שם הקובץ בלבד
+      } else {
+        this.girl.img = file.name; // שמירת שם הקובץ בלבד
+      }
     }
   }
-
+  
   onResumeChange(event: any) {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (this.personType === 'Guy') {
-          this.guy.resume = reader.result as string;
-        } else {
-          this.girl.resume = reader.result as string;
-        }
-      };
-      reader.readAsDataURL(file);
+      if (this.personType === 'Guy') {
+        this.guy.resume = file.name; // שמירת שם הקובץ בלבד
+      } else {
+        this.girl.resume = file.name; // שמירת שם הקובץ בלבד
+      }
     }
   }
-
+  
   onSubmit() {
     if (this.personType === 'Girl') {
       const girl: Girl = {

@@ -1,22 +1,29 @@
+
 <mat-card class="girl-card" style="background-color: #f1f8e9; border-radius: 10px; margin: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-    <mat-card-header>
-      <div mat-card-avatar class="girl-avatar" [ngStyle]="{'background-image': 'url(' + (girl?.img || 'default-image.jpg') + ')'}"></div>
-      <mat-card-title>{{ girl?.firstName }} {{ girl?.lastName }}</mat-card-title>
-      <mat-card-subtitle>{{ girl?.subject }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p><strong>תאריך לידה:</strong> {{ girl?.birthday }}</p>
-      <p><strong>גובה:</strong> {{ girl?.height }} ס"מ</p>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>פרטים נוספים</mat-panel-title>
-        </mat-expansion-panel-header>
-        <p><strong>שם אב:</strong> {{ girl?.fatherName }}</p>
-        <p><strong>שם אם:</strong> {{ girl?.motherName }}</p>
-        <p><strong>מוצא:</strong> {{ getMotzaName(girl?.motza) }}</p>
-        <p><strong>שנתון:</strong> {{ girl?.yearbook }}</p>
-        <p><strong>הערה:</strong> {{ girl?.remark || 'לא צויין' }}</p>
-        <p><strong>קורות חיים:</strong> {{ girl?.resume || 'לא צויין' }}</p>
-      </mat-expansion-panel>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img 
+        [src]="girl?.img || 'assets/default-girl.jpg'" 
+        alt="{{ girl?.firstName || 'Default Image' }}" 
+        class="avatar-img"
+      />
+    </div>
+    <mat-card-title>{{ girl?.firstName }} {{ girl?.lastName }}</mat-card-title>
+    <mat-card-subtitle>{{ girl?.subject }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>תאריך לידה:</strong> {{ girl?.birthday }}</p>
+    <p><strong>גובה:</strong> {{ girl?.height }} ס"מ</p>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>פרטים נוספים</mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><strong>שם אב:</strong> {{ girl?.fatherName }}</p>
+      <p><strong>שם אם:</strong> {{ girl?.motherName }}</p>
+      <p><strong>מוצא:</strong> {{ getMotzaName(girl?.motza) }}</p>
+      <p><strong>שנתון:</strong> {{ girl?.yearbook }}</p>
+      <p><strong>הערה:</strong> {{ girl?.remark || 'לא צויין' }}</p>
+      <p><strong>קורות חיים:</strong> {{ girl?.resume || 'לא צויין' }}</p>
+    </mat-expansion-panel>
+  </mat-card-content>
+</mat-card>
