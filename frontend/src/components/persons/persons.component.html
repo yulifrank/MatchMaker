@@ -2,13 +2,27 @@
   <h2>Guys</h2>
   <div class="person-grid">
     <div *ngFor="let guy of guys" class="person-card">
+      <div class="person-actions">
+        <!-- אייקון עריכה -->
+        <mat-icon (click)="onEditPerson(guy)">edit</mat-icon>
+        
+        <!-- אייקון מחיקה -->
+        <mat-icon (click)="onDeletePerson(guy.id)">delete</mat-icon>
+      </div>
       <app-guy [guy]="guy"></app-guy>
     </div>
   </div>
-  
+
   <h2>Girls</h2>
   <div class="person-grid">
     <div *ngFor="let girl of girls" class="person-card">
+      <div class="person-actions">
+        <!-- אייקון עריכה -->
+        <mat-icon (click)="onEditPerson(girl)">edit</mat-icon>
+        
+        <!-- אייקון מחיקה -->
+        <mat-icon (click)="onDeletePerson(girl.id)">delete</mat-icon>
+      </div>
       <app-girl [girl]="girl"></app-girl>
     </div>
   </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';  // הוספת Router
 import { RouterModule } from '@angular/router';  // הוספת RouterModule
 
@@ -7,7 +9,7 @@ import { RouterModule } from '@angular/router';  // הוספת RouterModule
   standalone: true, // רכיב עצמאי
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss'],
-  imports: [RouterModule], // מייבא את RouterModule כאן
+  imports: [RouterModule,MatIcon,MatToolbar], // מייבא את RouterModule כאן
 })
 export class TopBarComponent implements OnInit {
   constructor(private router: Router) {}

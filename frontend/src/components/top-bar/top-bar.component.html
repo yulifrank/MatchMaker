@@ -1,9 +1,18 @@
-<nav class="navbar">
-    <a routerLink="/" routerLinkActive="active">בית</a>
-    <a routerLink="/person" routerLinkActive="active">רווקים</a>
-    <a routerLink="/ideas" routerLinkActive="active">רעיונות</a>
-    <a routerLink="/add" routerLinkActive="active">חדש</a>
-  </nav>
-  
-  <!-- זהו החלק שבו יטען התוכן של כל ראוט -->
-  
+<nav class="navbar mat-elevation-z4">
+  <mat-toolbar color="primary">
+    <div class="toolbar-content">
+      <a mat-button routerLink="/" routerLinkActive="active">
+        <mat-icon>home</mat-icon> בית
+      </a>
+      <a mat-button routerLink="/person" routerLinkActive="active">
+        <mat-icon>person</mat-icon> רווקים
+      </a>
+      <a mat-button routerLink="/ideas" routerLinkActive="active">
+        <mat-icon>lightbulb</mat-icon> רעיונות
+      </a>
+      <a mat-button routerLink="/add" routerLinkActive="active">
+        <mat-icon>add</mat-icon> חדש
+      </a>
+    </div>
+  </mat-toolbar>
+</nav>

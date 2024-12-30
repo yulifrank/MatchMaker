@@ -1,30 +1,69 @@
+/* עיצוב navbar */
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #cdcdcd70;
-    padding: 2rem;
-    position: fixed;
-    width: 100%;
-    top:0;
-    margin-bottom: 5%;
-    
-  }
-  
-  .navbar a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .navbar a:hover {
-    color: #ffcc00; /* צבע הדגשה */
-  }
-  
-  .navbar a.active {
-    color: #ff6600; /* צבע קישור פעיל */
-  }
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 12;
+  margin-bottom: 5%;
+}
 
-  
+/* עיצוב ה-toolbar */
+mat-toolbar {
+  background-color: #86c2f3; /* צבע כחול מודרני */
+  color: white;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center; /* מרכז את התוכן */
+  align-items: center;
+  height: 5%;
+}
+
+/* התוכן בתוך ה-toolbar */
+.toolbar-content {
+  display: flex;
+  justify-content:center; /* מפריד בין הכפתורים */
+  width: 100%;
+}
+
+/* עיצוב האייקונים */
+mat-icon {
+  margin-right: 8px;
+}
+
+/* קישורים בפסיקי פעיל */
+.navbar a.active {
+  color: #000000; /* צבע חזק כשיש קישור פעיל */
+  text-decoration: none; /* ללא קו תחתון */
+
+}
+
+/* צבע בעת ריחוף */
+.navbar a:hover {
+  color: #6a6a6a; /* צבע צהוב בהדגשה בעת ריחוף */
+  text-decoration: none; /* ללא קו תחתון */
+
+}
+
+/* עיצוב הכפתורים */
+mat-button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: none;
+  text-decoration: none; /* ללא קו תחתון */
+
+}
+
+/* עיצוב של הכפתור עם ריחוף */
+mat-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* התאמת רוחב הכפתור */
+.navbar a {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* ללא קו תחתון */
+
+}

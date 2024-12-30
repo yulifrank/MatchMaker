@@ -1,131 +1,164 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
 <div class="form-container">
   <h2>הוספת פרסון</h2>
+
   <div class="form-group">
-    <label for="personType">בחר סוג אדם:</label>
-    <select id="personType" [(ngModel)]="personType">
-      <option value="Guy">בחור</option>
-      <option value="Girl">בחורה</option>
-    </select>
+    <mat-form-field appearance="fill">
+      <mat-label>בחר סוג אדם:</mat-label>
+      <mat-select [(ngModel)]="personType">
+        <mat-option value="Guy">בחור</mat-option>
+        <mat-option value="Girl">בחורה</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <div *ngIf="personType === 'Guy'">
-    <div class="form-group">
-      <label for="firstName">שם פרטי:</label>
-      <input id="firstName" [(ngModel)]="guy.firstName" />
+    <div class="form-row">
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם פרטי:</mat-label>
+          <input matInput id="firstName" [(ngModel)]="guy.firstName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם משפחה:</mat-label>
+          <input matInput id="lastName" [(ngModel)]="guy.lastName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>תאריך לידה:</mat-label>
+          <input matInput type="date" id="birthday" [(ngModel)]="guy.birthday" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם האב:</mat-label>
+          <input matInput id="fatherName" [(ngModel)]="guy.fatherName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם האם:</mat-label>
+          <input matInput id="motherName" [(ngModel)]="guy.motherName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>גובה:</mat-label>
+          <input matInput type="number" id="height" [(ngModel)]="guy.height" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>מוצא:</mat-label>
+          <mat-select [(ngModel)]="guy.motza">
+            <mat-option [value]="Motza.Ashcenaz">אשכנז</mat-option>
+            <mat-option [value]="Motza.Sfarad">ספרד</mat-option>
+            <mat-option [value]="Motza.Chasid">חסיד</mat-option>
+            <mat-option [value]="Motza.Teman">תימן</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="lastName">שם משפחה:</label>
-      <input id="lastName" [(ngModel)]="guy.lastName" />
-    </div>
-
-    <div class="form-group">
-      <label for="birthday">תאריך לידה:</label>
-      <input id="birthday" type="date" [(ngModel)]="guy.birthday" />
-    </div>
-
-    <div class="form-group">
-      <label for="fatherName">שם האב:</label>
-      <input id="fatherName" [(ngModel)]="guy.fatherName" />
-    </div>
-
-    <div class="form-group">
-      <label for="motherName">שם האם:</label>
-      <input id="motherName" [(ngModel)]="guy.motherName" />
-    </div>
-
-    <div class="form-group">
-      <label for="height">גובה:</label>
-      <input id="height" type="number" [(ngModel)]="guy.height" />
-    </div>
-
-    <div class="form-group">
-      <label for="motza">מוצא:</label>
-      <select id="motza" [(ngModel)]="guy.motza">
-        <option [ngValue]="Motza.Ashcenaz">אשכנז</option>
-        <option [ngValue]="Motza.Sfarad">ספרד</option>
-        <option [ngValue]="Motza.Chasid">חסיד</option>
-        <option [ngValue]="Motza.Teman">תימן</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="vaad">ועד:</label>
-      <input id="vaad" type="number" [(ngModel)]="guy.vaad" />
-    </div>
-
-    <div class="form-group">
-      <label for="img">תמונה:</label>
+      <label for="img">
+        <span class="material-icons">image</span> תמונה:
+      </label>
       <input id="img" type="file" (change)="onImageChange($event)" />
     </div>
 
     <div class="form-group">
-      <label for="resume">קורות חיים:</label>
+      <label for="resume">
+        <span class="material-icons">insert_drive_file</span> קורות חיים:
+      </label>
       <input id="resume" type="file" (change)="onResumeChange($event)" />
     </div>
   </div>
 
   <div *ngIf="personType === 'Girl'">
-    <div class="form-group">
-      <label for="firstName">שם פרטי:</label>
-      <input id="firstName" [(ngModel)]="girl.firstName" />
+    <div class="form-row">
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם פרטי:</mat-label>
+          <input matInput id="firstName" [(ngModel)]="girl.firstName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם משפחה:</mat-label>
+          <input matInput id="lastName" [(ngModel)]="girl.lastName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>תאריך לידה:</mat-label>
+          <input matInput type="date" id="birthday" [(ngModel)]="girl.birthday" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם האב:</mat-label>
+          <input matInput id="fatherName" [(ngModel)]="girl.fatherName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>שם האם:</mat-label>
+          <input matInput id="motherName" [(ngModel)]="girl.motherName" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>גובה:</mat-label>
+          <input matInput type="number" id="height" [(ngModel)]="girl.height" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>מוצא:</mat-label>
+          <mat-select [(ngModel)]="girl.motza">
+            <mat-option [value]="Motza.Ashcenaz">אשכנז</mat-option>
+            <mat-option [value]="Motza.Sfarad">ספרד</mat-option>
+            <mat-option [value]="Motza.Chasid">חסיד</mat-option>
+            <mat-option [value]="Motza.Teman">תימן</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="lastName">שם משפחה:</label>
-      <input id="lastName" [(ngModel)]="girl.lastName" />
-    </div>
-
-    <div class="form-group">
-      <label for="birthday">תאריך לידה:</label>
-      <input id="birthday" type="date" [(ngModel)]="girl.birthday" />
-    </div>
-
-    <div class="form-group">
-      <label for="fatherName">שם האב:</label>
-      <input id="fatherName" [(ngModel)]="girl.fatherName" />
-    </div>
-
-    <div class="form-group">
-      <label for="motherName">שם האם:</label>
-      <input id="motherName" [(ngModel)]="girl.motherName" />
-    </div>
-
-    <div class="form-group">
-      <label for="height">גובה:</label>
-      <input id="height" type="number" [(ngModel)]="girl.height" />
-    </div>
-
-    <div class="form-group">
-      <label for="motza">מוצא:</label>
-      <select id="motza" [(ngModel)]="girl.motza">
-        <option [ngValue]="Motza.Ashcenaz">אשכנז</option>
-        <option [ngValue]="Motza.Sfarad">ספרד</option>
-        <option [ngValue]="Motza.Chasid">חסיד</option>
-        <option [ngValue]="Motza.Teman">תימן</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="subject">מקצוע:</label>
-      <input id="subject" [(ngModel)]="girl.subject" />
-    </div>
-
-    <div class="form-group">
-      <label for="yearbook">שנתון:</label>
-      <input id="yearbook" type="number" [(ngModel)]="girl.yearbook" />
-    </div>
-
-    <div class="form-group">
-      <label for="img">תמונה:</label>
+      <label for="img">
+        <span class="material-icons">image</span> תמונה:
+      </label>
       <input id="img" type="file" (change)="onImageChange($event)" />
     </div>
 
     <div class="form-group">
-      <label for="resume">קורות חיים:</label>
+      <label for="resume">
+        <span class="material-icons">insert_drive_file</span> קורות חיים:
+      </label>
       <input id="resume" type="file" (change)="onResumeChange($event)" />
     </div>
   </div>
 
-  <button class="submit-button" (click)="onSubmit()">שלח</button>
+  <button mat-raised-button class="submit-button" (click)="onSubmit()">שמור</button>
 </div>
