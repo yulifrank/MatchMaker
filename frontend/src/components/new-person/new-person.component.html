@@ -1,10 +1,5 @@
-<head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-
 <div class="form-container">
-  <h2>הוספת פרסון</h2>
+  <h2>הוספת בחור/ה</h2>
 
   <div class="form-group">
     <mat-form-field appearance="fill">
@@ -45,7 +40,9 @@
           <input matInput id="fatherName" [(ngModel)]="guy.fatherName" />
         </mat-form-field>
       </div>
+    </div>
 
+    <div class="form-row">
       <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>שם האם:</mat-label>
@@ -64,10 +61,10 @@
         <mat-form-field appearance="fill">
           <mat-label>מוצא:</mat-label>
           <mat-select [(ngModel)]="guy.motza">
-            <mat-option [value]="Motza.Ashcenaz">אשכנז</mat-option>
-            <mat-option [value]="Motza.Sfarad">ספרד</mat-option>
-            <mat-option [value]="Motza.Chasid">חסיד</mat-option>
-            <mat-option [value]="Motza.Teman">תימן</mat-option>
+            <mat-option [value]="'Ashcenaz'">אשכנז</mat-option>
+            <mat-option [value]="'Sfarad'">ספרד</mat-option>
+            <mat-option [value]="'Chasid'">חסיד</mat-option>
+            <mat-option [value]="'Teman'">תימן</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -104,25 +101,20 @@
         </mat-form-field>
       </div>
 
-      <div class="form-group">
-        <mat-form-field appearance="fill">
-          <mat-label>תאריך לידה:</mat-label>
-          <input matInput type="date" id="birthday" [(ngModel)]="girl.birthday" />
-        </mat-form-field>
-      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>שם האם:</mat-label>
+            <input matInput id="motherName" [(ngModel)]="girl.motherName" />
+          </mat-form-field>
+        </div>
 
-      <div class="form-group">
-        <mat-form-field appearance="fill">
-          <mat-label>שם האב:</mat-label>
-          <input matInput id="fatherName" [(ngModel)]="girl.fatherName" />
-        </mat-form-field>
-      </div>
-
-      <div class="form-group">
-        <mat-form-field appearance="fill">
-          <mat-label>שם האם:</mat-label>
-          <input matInput id="motherName" [(ngModel)]="girl.motherName" />
-        </mat-form-field>
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>שם האב:</mat-label>
+            <input matInput id="fatherName" [(ngModel)]="girl.fatherName" />
+          </mat-form-field>
+        </div>
       </div>
 
       <div class="form-group">
@@ -134,12 +126,19 @@
 
       <div class="form-group">
         <mat-form-field appearance="fill">
+          <mat-label>תאריך לידה:</mat-label>
+          <input matInput type="date" id="birthday" [(ngModel)]="girl.birthday" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
           <mat-label>מוצא:</mat-label>
           <mat-select [(ngModel)]="girl.motza">
-            <mat-option [value]="Motza.Ashcenaz">אשכנז</mat-option>
-            <mat-option [value]="Motza.Sfarad">ספרד</mat-option>
-            <mat-option [value]="Motza.Chasid">חסיד</mat-option>
-            <mat-option [value]="Motza.Teman">תימן</mat-option>
+            <mat-option [value]="'Ashcenaz'">אשכנז</mat-option>
+            <mat-option [value]="'Sfarad'">ספרד</mat-option>
+            <mat-option [value]="'Chasid'">חסיד</mat-option>
+            <mat-option [value]="'Teman'">תימן</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -160,5 +159,5 @@
     </div>
   </div>
 
-  <button mat-raised-button class="submit-button" (click)="onSubmit()">שמור</button>
+  <button class="submit-button" (click)="onSubmit()">שמור</button>
 </div>

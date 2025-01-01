@@ -1,35 +1,31 @@
 /* כללי */
 body {
-  margin-top: 10%;
+  margin-top: 12%;
   font-family: 'Roboto', sans-serif;
-  background-color: #f1f1f151;
-  margin: 0;
+  background-color: #f1f1f1bb;
   padding: 0;
   color: #333;
   direction: rtl;
-
 }
 
 /* מיכל טופס */
 .form-container {
-
-  background-color: #ffffff4c;
+  background-color: #ffffffcf;
   margin: 40px auto;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  // max-width: 1200px; /* מאפשר טופס רחב עד 1200px */
   width: 70%;
   transition: all 0.3s ease;
   box-sizing: border-box;
-  margin-top: 4%;
+ margin-top: 6%;
 }
 
 /* כותרת */
 h2 {
   text-align: center;
   font-size: 36px;
-  color: #333;
+  color: #645f00;
   margin-bottom: 30px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -37,7 +33,7 @@ h2 {
 
 /* קבוצת שדה */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -57,7 +53,6 @@ input[type="file"] {
   border-radius: 12px;
   font-size: 18px;
   color: #555;
-  // background-color: #ffffff;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
 }
@@ -75,7 +70,7 @@ input[type="file"]:focus {
 
 /* כפתור שליחה */
 .submit-button {
-  background: linear-gradient(90deg, #00bcd4, #4caf50);
+  background: linear-gradient(90deg, #afaf4cb8, #ad7000);
   color: white;
   border: none;
   padding: 18px 22px;
@@ -88,7 +83,7 @@ input[type="file"]:focus {
 }
 
 .submit-button:hover {
-  background: linear-gradient(90deg, #4caf50, #00bcd4);
+  background: linear-gradient(90deg, #afaf4c83, #5f530186);
   transform: scale(1.05);
 }
 
@@ -120,9 +115,10 @@ input[type="file"]:focus {
 /* חלוקה לשני טורים */
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1fr 1fr; /* 2 שדות לכל שורה */
+  gap: 20px; /* רווח בין השדות */
   width: 100%;
+  margin-bottom: 15px;
 }
 
 /* עיצוב כותרות */
@@ -162,6 +158,25 @@ input[type="file"]:focus {
   border-color: #00bcd4;
   background-color: #e0f7fa;
 }
-.at-mdc-text-field-wrapper {
-  background-color: #ddd !important;
+
+.form-container {
+  // margin: auto;
+  direction: rtl;
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row-inline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+mat-form-field {
+  flex: 1;
+  min-width: 120px;
 }

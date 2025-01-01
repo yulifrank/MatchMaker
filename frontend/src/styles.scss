@@ -3,11 +3,18 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
     opacity: 1;
-    background: linear-gradient(to right, #3dfcd994, #08ad4a3c, #ff00773b)
-    !important;}
+ }
 
 .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
     opacity: 1;
     background: linear-gradient(to right, #00ffd04b, rgba(255, 116, 160, 0.655), #93fff24a)
     !important;
 }
+body{
+    background-image: url('../src/assets/images/image1.png');
+    background-size: cover; /* כדי להתאים את התמונה לגודל של החלון */
+    background-attachment: fixed; /* כדי להשאיר את התמונה במקום כאשר ממסך נגללים */
+    background-position: center center; /* כדי למקד את התמונה באמצע הדף */
+    background-repeat: no-repeat; /* כדי לא לשקול את התמונה */
+  }
+  

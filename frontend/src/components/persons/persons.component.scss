@@ -1,26 +1,54 @@
 .person-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin-top: 10%;
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .person-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .person-card {
-    width: 300px;
-    margin: 10px;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  margin-top: 4%;
+  background-color: rgba(240, 248, 255, 0.616);
+}
+
+.person-group {
+  width: 45%; /* אפשר לשנות לפי הצורך */
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.person-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.person-card {
+  width: 300px;
+  margin: 10px;
+}
+
+.filter-section {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 250px; /* רוחב מותאם יותר */
+}
+
+.filter-container {
+  // margin-top: 7%; /* מרווח גמיש יותר */
+  margin-left: 0%;
+}

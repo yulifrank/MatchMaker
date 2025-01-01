@@ -1,29 +1,74 @@
+
+
 <div class="person-list">
-  <h2>Guys</h2>
-  <div class="person-grid">
-    <div *ngFor="let guy of guys" class="person-card">
-      <div class="person-actions">
-        <!-- אייקון עריכה -->
-        <mat-icon (click)="onEditPerson(guy)">edit</mat-icon>
-        
-        <!-- אייקון מחיקה -->
-        <mat-icon (click)="onDeletePerson(guy.id)">delete</mat-icon>
+  <div class="filter-container">
+    <div class="filter-section">
+      <div class="filter-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Search</mat-label>
+          <input matInput [(ngModel)]="filters.searchText" (ngModelChange)="applyFilters()" placeholder="Search by any field" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput [(ngModel)]="filters.firstName" (ngModelChange)="applyFilters()" placeholder="Search by first name" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput [(ngModel)]="filters.lastName" (ngModelChange)="applyFilters()" placeholder="Search by last name" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Openness Level</mat-label>
+          <mat-select [(ngModel)]="filters.opennessLevel" (ngModelChange)="applyFilters()">
+            <mat-option *ngFor="let level of opennessLevels" [value]="level">{{ level }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Motza</mat-label>
+          <mat-select [(ngModel)]="filters.motza" (ngModelChange)="applyFilters()">
+            <mat-option *ngFor="let entry of motzaOptions" [value]="entry[1]">{{ entry[0] }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Height (Min)</mat-label>
+          <input matInput [(ngModel)]="filters.heightMin" (ngModelChange)="applyFilters()" type="number" placeholder="Min height" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Height (Max)</mat-label>
+          <input matInput [(ngModel)]="filters.heightMax" (ngModelChange)="applyFilters()" type="number" placeholder="Max height" />
+        </mat-form-field>
       </div>
-      <app-guy [guy]="guy"></app-guy>
+    </div>
+  </div>
+  
+  <div class="person-group">
+    <h2>Guys</h2>
+    <div class="person-grid">
+      <div *ngFor="let guy of filteredGuys" class="person-card">
+        <div class="person-actions">
+          <mat-icon (click)="onEditPerson(guy)">edit</mat-icon>
+          <mat-icon (click)="onDeletePerson(guy.id)">delete</mat-icon>
+        </div>
+        <app-guy [guy]="guy"></app-guy>
+      </div>
     </div>
   </div>
 
-  <h2>Girls</h2>
-  <div class="person-grid">
-    <div *ngFor="let girl of girls" class="person-card">
-      <div class="person-actions">
-        <!-- אייקון עריכה -->
-        <mat-icon (click)="onEditPerson(girl)">edit</mat-icon>
-        
-        <!-- אייקון מחיקה -->
-        <mat-icon (click)="onDeletePerson(girl.id)">delete</mat-icon>
+  <div class="person-group">
+    <h2>Girls</h2>
+    <div class="person-grid">
+      <div *ngFor="let girl of filteredGirls" class="person-card">
+        <div class="person-actions">
+          <mat-icon (click)="onEditPerson(girl)">edit</mat-icon>
+          <mat-icon (click)="onDeletePerson(girl.id)">delete</mat-icon>
+        </div>
+        <app-girl [girl]="girl"></app-girl>
       </div>
-      <app-girl [girl]="girl"></app-girl>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@
 
 /* עיצוב ה-toolbar */
 mat-toolbar {
-  background-color: #86c2f3; /* צבע כחול מודרני */
+  background: linear-gradient(45deg, #b8870b, #97592d, #ffffff, #c0c0c0,);
   color: white;
   padding: 1.5rem 0;
   display: flex;
@@ -39,7 +39,7 @@ mat-icon {
 
 /* צבע בעת ריחוף */
 .navbar a:hover {
-  color: #6a6a6a; /* צבע צהוב בהדגשה בעת ריחוף */
+  color: #00000093; /* צבע צהוב בהדגשה בעת ריחוף */
   text-decoration: none; /* ללא קו תחתון */
 
 }
@@ -56,7 +56,7 @@ mat-button {
 
 /* עיצוב של הכפתור עם ריחוף */
 mat-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255);
 }
 
 /* התאמת רוחב הכפתור */
@@ -65,5 +65,22 @@ mat-button:hover {
   display: flex;
   align-items: center;
   text-decoration: none; /* ללא קו תחתון */
+  color: #000000;
 
+}
+
+.home-icon {
+  color: rgba(99, 79, 0, 0.744); /* צבע אדום */
+}
+
+.person-icon {
+  color: rgba(99, 79, 0, 0.744); /* צבע אדום */
+}
+
+.ideas-icon {
+  color: rgba(99, 79, 0, 0.744); /* צבע אדום */
+}
+
+.add-icon {
+  color: rgba(99, 79, 0, 0.744); /* צבע אדום */
 }
